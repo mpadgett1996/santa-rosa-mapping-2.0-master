@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>Santa Rosa Place</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+    <!--Load Bootstrap and jQuery -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <!-- Load CSS and js for selectpicker -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+
+    <!-- Load our css -->
+    <link rel="stylesheet" href="stylesheets/reportForm.css">
+
+</head>
+<a href="/map" class="button" style="font-size: 15pt; margin-top: 1px; margin-right: 20px; position:absolute; top:0; right:0; color:red;" >X</a>
+<body>
+<h1>Report Inappropriate Point</h1>
+<%- prefix %>
+<p>
+    <b>Place:</b> <%= place %> <br/>
+    <b>Person:</b> <%= name %> <br/>
+    <b>Type:</b> <%= type %> <br/>
+    <b>Importance:</b> <%= importance %> </br />
+    <b>Description of Point:</b> <%= more %>
+</p>
+
+<form role="form">
+    <div class="form-group">
+        <label for="field">Which part of this point are you reporting?</label>
+        <select class="selectpicker" id="field">
+            <optgroup label="Select a field">
+                <option>Name of Place</option>
+                <option>Name of Person</option>
+                <option>Description of Point</option>
+                <option>Picture</option>
+                <option>Video</option>
+            </optgroup>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="reportType"> What kind of report? </label>
+        <select class="selectpicker" id="reportType">
+            <optgroup>
+                <option value="Inapp"> Inappropriate Content </option>
+                <option value="Inacc"> Inaccurate Information </option>
+                <option value="AdSpam"> Advertisement/Spam </option>
+            </optgroup>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="why">Why are you reporting this?</label>
+        <textarea class="form-control" rows="5" id="why"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="email">Email address (optional):</label>
+        <input type="email" class="form-control" id="email">
+    </div>
+    <button type="button" class="btn btn-default" id="submit-report">Submit</button>
+    <input type="hidden" id="feature-id" value="<%= OBJECTID %>">
+    <input type="hidden" id="layer" value="<%= type %>">
+</form>
+<script src="javascripts/reportForm.js"></script>
+</body>
+</html>

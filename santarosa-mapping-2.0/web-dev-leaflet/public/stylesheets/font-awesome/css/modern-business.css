@@ -1,0 +1,390 @@
+/*!
+ * Start Bootstrap - Modern Business (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+/* Global Styles */
+
+h1,
+h2,
+h3,
+p{
+    text-align: center;
+}
+
+p1 {
+    text-align: left;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    background-color: lightgray;
+}
+
+body {
+    padding-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+.img-portfolio {
+    margin-bottom: 30px;
+}
+
+.img-hover:hover {
+    opacity: 0.8;
+}
+
+/*hover over catalog items */
+.title {
+    display: none;
+    position: relative;
+    text-align: center;
+    top: -170px;
+}
+
+/* Home Page Carousel */
+
+header.carousel {
+    height: 100%;
+}
+
+header.carousel .item,
+header.carousel .item.active,
+header.carousel .carousel-inner {
+    height: 100%;
+}
+
+header.carousel .fill {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+/* 404 Page Styles */
+
+.error-404 {
+    font-size: 100px;
+}
+
+/* Pricing Page Styles */
+
+.price {
+    display: block;
+    font-size: 50px;
+    line-height: 50px;
+}
+
+.price sup {
+    top: -20px;
+    left: 2px;
+    font-size: 20px;
+}
+
+.period {
+    display: block;
+    font-style: italic;
+}
+
+/* Footer Styles */
+
+footer {
+    margin: 50px 0;
+}
+
+/* Responsive Styles */
+
+@media(max-width:991px) {
+    .customer-img,
+    .img-related {
+        margin-bottom: 30px;
+    }
+}
+
+@media(max-width:767px) {
+    .img-portfolio {
+        margin-bottom: 15px;
+    }
+}
+
+.imageWrapper {
+    position: relative;
+}
+.imageWrapper img {
+    display: block;
+}
+.imageWrapper .cornerLink {
+    opacity: .7;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    padding: 2px 0px;
+    color: #ffffff;
+    background: #000000;
+    text-decoration: none;
+    text-align: center;
+    -webkit-transition: opacity 500ms;
+    -moz-transition: opacity 500ms;
+    -o-transition: opacity 500ms;
+    transition: opacity 500ms;
+
+}
+.imageWrapper:hover .cornerLink {
+    opacity: 0.8;
+}
+
+/* w3 side navigation bar */
+.w3-navbar a,.w3-sidenav a,.w3-dropnav a,.w3-pagination li a,.w3-hoverable tbody tr,.w3-hoverable li,.w3-accordion-content a,.w3-dropdown-content a,.w3-dropdown-click:hover,.w3-dropdown-hover:hover,.w3-opennav,.w3-closenav,.w3-closebtn,
+.w3-hover-amber,.w3-hover-aqua,.w3-hover-blue,.w3-hover-light-blue,.w3-hover-brown,.w3-hover-cyan,.w3-hover-blue-grey,.w3-hover-green,.w3-hover-light-green,.w3-hover-indigo,.w3-hover-khaki,.w3-hover-lime,.w3-hover-orange,.w3-hover-deep-orange,.w3-hover-pink,
+.w3-hover-purple,.w3-hover-deep-purple,.w3-hover-red,.w3-hover-sand,.w3-hover-teal,.w3-hover-yellow,.w3-hover-white,.w3-hover-black,.w3-hover-grey,.w3-hover-light-grey,.w3-hover-dark-grey,.w3-hover-text-amber,.w3-hover-text-aqua,.w3-hover-text-blue,.w3-hover-text-light-blue,
+.w3-hover-text-brown,.w3-hover-text-cyan,.w3-hover-text-blue-grey,.w3-hover-text-green,.w3-hover-text-light-green,.w3-hover-text-indigo,.w3-hover-text-khaki,.w3-hover-text-lime,.w3-hover-text-orange,.w3-hover-text-deep-orange,.w3-hover-text-pink,.w3-hover-text-purple,
+.w3-hover-text-deep-purple,.w3-hover-text-red,.w3-hover-text-sand,.w3-hover-text-teal,.w3-hover-text-yellow,.w3-hover-text-white,.w3-hover-text-black,.w3-hover-text-grey,.w3-hover-text-light-grey,.w3-hover-text-dark-grey
+{-webkit-transition:background-color .3s,color .15s,box-shadow .3s,opacity 0.3s;transition:background-color .3s,color .15s,box-shadow .3s,opacity 0.3s}
+.w3-sidenav{height:2px;width:200px;background-color:#fff;position:absolute!important;z-index:1500;overflow-y:auto; top: 5px; visiblity: hidden; bottom: 5px; }
+
+/*w 3 side navigation bar */
+.w3-animate-left{position:relative; visiblility:visible; -webkit-animation:animateleft 0.4s;animation:animateleft 0.4s}
+@-webkit-keyframes animateleft{from{left:-300px;opacity:0} to{left:0;opacity:1}}
+@keyframes animateleft{from{left:-300px;opacity:0} to{left:0;opacity:1}}
+
+
+/*/*/
+/** Start Bootstrap - Grayscale Bootstrap Theme (http://startbootstrap.com)*/
+/** Code licensed under the Apache License v2.0.*/
+/** For details, see http://www.apache.org/licenses/LICENSE-2.0.*/
+/**/
+.frontPic {
+    max-height: 100%
+}
+.slideBox {
+    cursor: move;
+    position: relative;
+    overflow: hidden;
+    left: 0px;
+    top: 0px;
+    /* THIS IS HARD CODED: Change to be dynamic.*/
+    width: 412px;
+    height: 600px;
+}
+
+#title {
+    position: absolute;
+    top: 35%;
+    left: 13%;
+    width: 75%;
+    height: 20%;
+    z-index: 11;
+    font-size: 55%;
+    color: #ffffff;
+    line-height: 60px;
+    font-family:Verdana, Geneva, sans-serif;
+    text-shadow:.6px .6px 0 #000,
+    -.6px -.6px 0 #000,
+    .6px -.6px 0 #000,
+    -.6px .6px 0 #000,
+    0px .6px 0 #000,
+    .6px 0px 0 #000,
+    0px -.6px 0 #000,
+    -.6px 0px 0 #000;
+    /*4px 4px 3px #fff;*/
+
+
+}
+
+
+
+#message {
+    position: absolute;
+    top: 40%;
+    left: 15%;
+    width: 70%;
+    height: 15%;
+    z-index: 11;
+    font-size: 45%;
+    color: #ffffff;
+    line-height: 38px;
+    font-family:Verdana, Geneva, sans-serif;
+
+    text-shadow:.6px .6px 0 #000,
+    -.6px -.6px 0 #000,
+    .6px -.6px 0 #000,
+    -.6px .6px 0 #000,
+    0px .6px 0 #000,
+    .6px 0px 0 #000,
+    0px -.6px 0 #000,
+    -.6px 0px 0 #000;
+    /*4px 4px 3px #fff;*/
+
+
+
+}
+
+.images{
+    /*position: absolute;*/
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 60%;
+    z-index: 10;
+}
+
+
+body {
+    width: 100%;
+    height: 100%;
+    font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    /*color: #fff;*/
+    /*background-color: #000;*/
+}
+
+
+.brand-heading {
+    text-shadow:
+            -2px -2px 0 #000,
+            2px -2px 0 #000,
+            -2px 2px 0 #000,
+            2px 2px 0 #000;
+    z-index: 11;
+}
+
+.intro-text {
+    text-shadow:
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0 0 35px;
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 1;
+}
+
+p {
+    margin: 0 0 25px;
+    font-size: 18px;
+    line-height: 1;
+}
+
+@media(min-width:768px) {
+    p {
+        margin: 0 0 35px;
+        font-size: 20px;
+        line-height: 1.6;
+    }
+}
+
+a {
+    color: #ffffff;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+
+a:hover,
+a:focus {
+    text-decoration: none;
+    color: #1d9b6c;
+}
+
+.light {
+    font-weight: 400;
+}
+
+.navbar-custom {
+    margin-bottom: 0;
+    border-bottom: 1px solid rgba(255,255,255,.3);
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    background-color: #000;
+}
+
+.navbar-custom .navbar-brand {
+    font-weight: 700;
+}
+
+.navbar-custom .navbar-brand:focus {
+    outline: 0;
+}
+
+.navbar-custom .navbar-brand .navbar-toggle {
+    padding: 4px 6px;
+    font-size: 16px;
+    color: #000;
+}
+
+.navbar-custom .navbar-brand .navbar-toggle:focus,
+.navbar-custom .navbar-brand .navbar-toggle:active {
+    outline: 0;
+}
+
+.navbar-custom a {
+    color: black;
+}
+
+.navbar-custom .nav li a {
+    -webkit-transition: background .3s ease-in-out;
+    -moz-transition: background .3s ease-in-out;
+    transition: background .3s ease-in-out;
+}
+
+.navbar-custom .nav li a:hover {
+    outline: 0;
+    color: rgba(255,255,255,.8);
+    background-color: transparent;
+}
+
+.navbar-custom .nav li a:focus,
+.navbar-custom .nav li a:active {
+    outline: 0;
+    background-color: transparent;
+}
+
+.navbar-custom .nav li.active {
+    outline: 0;
+}
+
+.navbar-custom .nav li.active a {
+    background-color: rgba(255,255,255,.3);
+}
+
+.navbar-custom .nav li.active a:hover {
+    color: #fff;
+}
+
+@media(min-width:768px) {
+    .navbar-custom {
+        padding: 5px 2px;
+        border-bottom: 0;
+        letter-spacing: 1px;
+        background: 0 0;
+        -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        transition: background .5s ease-in-out,padding .5s ease-in-out;
+    }
+
+    .navbar-custom.top-nav-collapse {
+        padding: 0;
+        border-bottom: 1px solid rgba(255,255,255,.3);
+        background: #000;
+    }
+}
+

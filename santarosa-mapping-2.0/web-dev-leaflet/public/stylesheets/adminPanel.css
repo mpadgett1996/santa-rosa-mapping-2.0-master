@@ -1,0 +1,18 @@
+body {
+    padding: 1% 10%;
+}
+
+tab{ padding-left: 1em; }
+
+h1 {
+    text-align: center;
+    color: #5bc0de;
+}
+
+input[type="text"],
+textarea {
+    width: 25%;
+    padding: 3px;
+    margin: 0;
+    border: none;
+}

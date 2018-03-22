@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Administrator Access Page</title>
+
+    <meta charset=utf-8 />
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+    <!--Load Bootstrap and jQuery -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <!-- Load CSS and js for selectpicker -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+
+    <!-- Load our css -->
+    <link rel="stylesheet" href="stylesheets/adminPanel.css">
+
+</head>
+
+<body>
+    <h1>Administrator Control Panel</h1>
+    <form role="form" action='/searchPin' method="post">
+        <div class="form-group">
+            <label for="AttributeToQuery">Which pin attribute are you searching for?</label>
+        <br>
+            <select class="selectpicker" id="AttributeToQuery" name="AttributeToQuery">
+                <optgroup label="Select an attribute">
+                    <option>Name of Place</option>
+                    <option>Name of Submitter</option>
+                    <option>Address of Place</option>
+                </optgroup>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="StringToQuery">What text are you searching for?</label>
+            <textarea class="form-control" rows="1" id="StringToQuery" name="StringToQuery"></textarea>
+        </div>
+        <button type="button" class="btn btn-default" id="submit-pin-query" name="submit-pin-query">Search</button>
+    </form>
+    <br>
+    <form role="form" action="/addUser" method="post">
+        <div class="form-group">
+            <label for="Add Admin User">Add a new Admin User</label>
+        </div>
+        <div class="form-group">
+            <label for="newUsername">Please enter desired username.</label>
+            <textarea class="form-control" rows="1" id="newUsername" name="newUsername"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="newPassword">Please enter desired password.</label>
+            <textarea class="form-control" rows="1" id="newPassword"></textarea>
+        </div>
+        <button type="button" class="btn btn-default" id="submit-new-user" name="submit-new-user">Add</button>
+    </form>
+
+    <!--Load our js -->
+    <script src="javascripts/admin.js"></script>
+
+</body>
+
+<!-- Footer -->
+<footer id="footer">
+    <div class="container text-center">
+        <p>Copyright &copy; City of Santa Rosa</p>
+    </div>
+</footer>
+
+</html>

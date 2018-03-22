@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- <meta name="viewport" content="user-scalable=no;"> -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=9">
+    <!-- <meta name="viewport" content="width=device-width; initial-scale=1.0; maxiumum-scale=1.0;"> -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Santa Rosa Mapping Project</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href='/stylesheets/bootstrap.min.css' rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href='/stylesheets/grayscale.css' rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/stylesheets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!--<link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">-->
+    <!--<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">-->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!--Load Bootstrap and jQuery -->
+    <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>-->
+
+    <!-- Load sidebar css -->
+    <!--<link rel="stylesheet" type="text/css" href="stylesheets/simple-sidebar.css">-->
+
+    <!-- Load Leaflet from CDN-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/leaflet/1.0.0-beta.2/leaflet.css" />
+    <script src="https://cdn.jsdelivr.net/leaflet/1.0.0-beta.2/leaflet.js"></script>
+
+    <!-- Load Esri Leaflet from CDN -->
+    <script src="https://cdn.jsdelivr.net/leaflet.esri/2.0.0-beta.8/esri-leaflet.js"></script>
+
+    <!-- Include Leaflet.markercluster via rawgit.com, do not use in production -->
+    <link rel="stylesheet" type="text/css" href="//cdn.rawgit.com/Leaflet/Leaflet.markercluster/v1.0.0-beta.2.0/dist/MarkerCluster.Default.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.rawgit.com/Leaflet/Leaflet.markercluster/v1.0.0-beta.2.0/dist/MarkerCluster.css">
+    <script src="https://cdn.rawgit.com/Leaflet/Leaflet.markercluster/v1.0.0-beta.2.0/dist/leaflet.markercluster.js"></script>
+
+    <!-- Load Clustered Feature Layer from CDN -->
+    <script src="https://cdn.jsdelivr.net/leaflet.esri.clustered-feature-layer/2.0.0-beta.1/esri-leaflet-clustered-feature-layer.js"></script>
+
+    <!-- Load our css -->
+    <link rel="stylesheet" type="text/css" href="stylesheets/map.css">
+
+    <!-- Load search bar -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/leaflet.esri.geocoder/2.0.3/esri-leaflet-geocoder.css">
+    <script src="//cdn.jsdelivr.net/leaflet.esri.geocoder/2.0.3/esri-leaflet-geocoder.js"></script>
+
+    <!-- Load CSS and js for selectpicker -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+
+    <!-- Load awesome-markers stylesheets and js -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="stylesheets/leaflet.awesome-markers.css">
+    <script src="javascripts/leaflet.awesome-markers.min.js"></script>
+
+    <!-- Locate me button -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://domoritz.github.io/leaflet-locatecontrol/dist/L.Control.Locate.min.css" />
+    <script src="javascripts/L.Control.Locate.js"></script>
+
+    <!-- jQuery TouchSwipe plugin -->
+    <script src="javascripts/jquery.touchSwipe.min.js"></script>
+
+    <!-- w3 nav bar -->
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <script type="text/javascript">
+        console.log("Width: " + window.screen.availWidth);
+        console.log("Height: " + window.screen.availHeight);
+        window.onload = function() {
+            var style_string = "width:" + window.screen.availWidth + "px";
+            var width = window.screen.availWidth;
+            var height = window.screen.availHeight;
+            document.getElementById("map").setAttribute("style", style_string);
+            if (width < 1000) {
+                document.getElementById("sideNav").style.width = (width/1.5) + "px";
+                <!-- document.getElementById("sideNav").style.height = (height) + "px"; -->
+            } else {
+                document.getElementById("sideNav").style.width = (width/4) + "px";
+                <!-- document.getElementById("sideNav").style.height = (height) + "px"; -->
+            }
+
+            style_string = "height:" + (window.screen.availHeight-100) + "px";
+            document.getElementById("map").setAttribute("style", style_string);
+        }
+    </script>
+
+</head>
+
+
+
+<nav class="w3-sidenav w3-blue-grey w3-animate-left" id="sideNav" style="z-index:5; visibility: hidden; border-radius: 25px;  padding: 4px; overflow-y: scroll;">
+    <!--<a href="javascript:void(0)" onclick="w3_close()"-->
+    <!--class="w3-closenav w3-large">Close &times;</a>-->
+    <input type="button" onclick="w3_close()" value="X" style="font-size: 15pt; margin-top: 1px; margin-right: 2px; position:absolute; top:0; right:0; color:red;" >
+    <h2 style="text-align:center">SHARE YOUR STORY</h2>
+    <form role="form">
+        <div class="form-group">
+            <label for="place">Place:</label>
+            <input type="text" class="form-control" id="place" placeholder="Name of place">
+        </div>
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" placeholder="Your name">
+        </div>
+        <div class="form-group" id="address-form-group">
+            <label for="address">Address:</label>
+            <input type="text" class="form-control" id="address" placeholder="" readonly>
+        </div>
+        <div class="form-group">
+            What type of place is this? </br>
+            <select class="selectpicker" id="type">
+                <optgroup>
+                    <option>Neighborhood</option>
+                    <option>Park</option>
+                    <option>House</option>
+                    <option>School</option>
+                    <option>Business</option>
+                    <option>Street</option>
+                    <option>Natural Place</option>
+                    <option>Community Center</option>
+                    <option>Other</option>
+                </optgroup>
+            </select>
+        </div>
+        <div class="form-group">
+            Why is it important? </br>
+            <select class="selectpicker" id="importance">
+                <optgroup>
+                    <option>Community gathering place</option>
+                    <option>An important event</option>
+                    <option>An important person</option>
+                    <option>What used to be here</option>
+                </optgroup>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="more">Tell us more:</label>
+            <textarea class="form-control" rows="5" id="more"></textarea>
+        </div>
+        <div class="form-group">
+            <input type="file" id="file-select">
+        </div>
+        <div class="form-group">
+            <button type="button" class="btn btn-default" id="submit-add">Submit</button>
+        </div>
+    </form>
+</nav>
+
+<div class="w3-overlay w3-animate-opacity" ondblclick="return false;" onclick="w3_close()" style="cursor:pointer;"></div>
+
+<!-- The overlay -->
+<div id="instructions" class="overlay">
+
+    <!-- Button to close the overlay navigation -->
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" >&times;</a>
+
+    <!-- Overlay content -->
+    <div class="overlay-content">
+        <p>Use the scroll wheel to zoom in and out (Phone users use two finger gesture).</p>
+        <p>Double click to add a point (Phone users double tap).</p>
+        <p>Click or Tap a point to view the story related to this location.</p>
+        <p>Enable different layers with the button on the right side.</p>
+        <p>To close these instructions click the X in the top right corner, or press the back button on your browser.</p>
+    </div>
+
+</div>
+<!-- Use any element to open/show the overlay navigation menu -->
+<button id = "instructButton" class="instructButton" onclick="openNav()">Instructions</button>
+<div id="map" class = "map">
+</div>
+<!--Load our js -->
+<script src='/javascripts/map.js'></script>
+
+<!-- jQuery -->
+<!-- <script src='/javascripts/jquery.js'></script> -->
+
+<!-- Bootstrap Core JavaScript -->
+<script src="javascripts/bootstrap.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src='/javascripts/jquery.easing.min.js'></script>
+
+<!--&lt;!&ndash; Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ &ndash;&gt;-->
+<!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>-->
+
+<!-- Custom Theme JavaScript -->
+<script src='/javascripts/grayscale.js'></script>
+
+
+</body>
+
+
+</html>
